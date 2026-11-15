@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP TÚI MÙ GAMING</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#0b1020;
+ color:white;
+}
+header{
+ background:linear-gradient(120deg,#6d28d9,#ec4899);
+ padding:25px 15px;
+ text-align:center;
+}
+header h1{margin:0;font-size:27px}
+header p{margin-bottom:0}
+nav{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ background:#171d32;
+ padding:12px;
+ gap:9px;
+}
+button{
+ cursor:pointer;
+ border:0;
+ border-radius:9px;
+ padding:11px 16px;
+ font-weight:bold;
+}
+nav button{
+ background:#29334e;
+ color:white;
+}
+button:hover{opacity:.8}
+.container{
+ max-width:1050px;
+ margin:auto;
+ padding:20px;
+}
+.banner{
+ background:linear-gradient(120deg,#7c3aed,#db2777);
+ padding:25px;
+ border-radius:15px;
+ text-align:center;
+ margin-bottom:25px;
+}
+.banner h2{font-size:25px}
+.section-title{
+ color:#facc15;
+ border-left:5px solid #facc15;
+ padding-left:12px;
+}
+.products{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:15px;
+}
+.card{
+ background:#1a2340;
+ border:1px solid #394568;
+ padding:18px;
+ border-radius:14px;
+ text-align:center;
+}
+.card .emoji{font-size:48px}
+.price{
+ color:#facc15;
+ font-size:23px;
+ font-weight:bold;
+}
+.buy{
+ background:#e11d48;
+ color:white;
+ width:100%;
+ margin-top:10px;
+}
+.panel{
+ background:#1a2340;
+ padding:20px;
+ border-radius:14px;
+ margin:20px 0;
+}
+input,select{
+ width:100%;
+ padding:12px;
+ margin:8px 0;
+ border-radius:8px;
+ border:1px solid #64748b;
+ background:#0f172a;
+ color:white;
+}
+.primary{
+ background:#7c3aed;
+ color:white;
+ width:100%;
+ margin-top:8px;
+}
+.green{background:#16a34a;color:white}
+.red{background:#dc2626;color:white}
+.hidden{display:none}
+.notice{
+ background:#3b2b14;
+ color:#fde68a;
+ padding:12px;
+ border-radius:8px;
+ margin:12px 0;
+}
+.item{
+ background:#263250;
+ border-radius:9px;
+ padding:13px;
+ margin:10px 0;
+ overflow-wrap:anywhere;
+}
+footer{
+ background:#171d32;
+ text-align:center;
+ padding:25px;
+ margin-top:30px;
+ color:#cbd5e1;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎁 SHOP TÚI MÙ GAMING 🎮</h1>
+<p>FREE FIRE - LIÊN QUÂN - NẠP THẺ - NẠP GAME</p>
+</header>
+
+<nav>
+<button onclick="show('home')">Trang chủ</button>
+<button onclick="show('ff')">Túi mù Free Fire</button>
+<button onclick="show('lq')">Túi mù Liên Quân</button>
+<button onclick="show('nap')">Nạp thẻ</button>
+<button onclick="show('game')">Nạp game</button>
+<button onclick="show('login')">Tài khoản</button>
+<button onclick="show('adminLogin')">Admin</button>
+</nav>
+
+<div class="container">
+
+<!-- TRANG CHỦ -->
+<section id="home">
+<div class="banner">
+<h2>🔥 SHOP TÚI MÙ SIÊU HOT 🔥</h2>
+<p>Săn acc cực phẩm - Mở túi mù nhận quà hấp dẫn!</p>
+<p>Uy tín - Nhanh chóng - Hỗ trợ khách hàng</p>
+<button class="buy" onclick="show('ff')">MUA TÚI MÙ NGAY</button>
+</div>
+
+<h2 class="section-title">🎁 Túi mù nổi bật</h2>
+<div class="products">
+<div class="card">
+<div class="emoji">🔫</div>
+<h3>Túi mù Free Fire</h3>
+<p class="price">99K - 999K</p>
+<button class="buy" onclick="show('ff')">Xem ngay</button>
+</div>
+<div class="card">
+<div class="emoji">⚔️</div>
+<h3>Túi mù Liên Quân</h3>
+<p class="price">99K - 999K</p>
+<button class="buy" onclick="show('lq')">Xem ngay</button>
+</div>
+</div>
+
+<div class="panel">
+<h3>📞 Hỗ trợ khách hàng</h3>
+<p>Số điện thoại: <b>0933454413</b></p>
+</div>
+</section>
+
+<!-- FREE FIRE -->
+<section id="ff" class="hidden">
+<h2 class="section-title">🔥 TÚI MÙ FREE FIRE</h2>
+<div class="products" id="ffProducts"></div>
+</section>
+
+<!-- LIÊN QUÂN -->
+<section id="lq" class="hidden">
+<h2 class="section-title">⚔️ TÚI MÙ LIÊN QUÂN</h2>
+<div class="products" id="lqProducts"></div>
+</section>
+
+<!-- NẠP THẺ -->
+<section id="nap" class="hidden">
+<h2 class="section-title">💳 NẠP THẺ ĐIỆN THOẠI / GARENA</h2>
+<div class="panel">
+<h3>Gửi thông tin thẻ nạp</h3>
+<div class="notice">
+Chọn đúng nhà mạng và mệnh giá. Chỉ gửi thẻ hợp pháp thuộc quyền sở hữu của bạn.
+</div>
+<select id="cardType">
+<option>Garena</option>
+<option>Viettel</option>
+<option>Mobifone</option>
+<option>Vinaphone</option>
+</select>
+<select id="cardValue">
+<option>10.000đ</option>
+<option>20.000đ</option>
+<option>50.000đ</option>
+<option>100.000đ</option>
+<option>200.000đ</option>
+<option>500.000đ</option>
+</select>
+<input id="serial" placeholder="Số serial thẻ">
+<input id="code" placeholder="Mã thẻ">
+<input id="cardPhone" placeholder="Số điện thoại liên hệ">
+<button class="primary" onclick="sendCard()">GỬI THẺ CHỜ DUYỆT</button>
+<p id="cardMessage"></p>
+</div>
+</section>
+
+<!-- NẠP GAME -->
+<section id="game" class="hidden">
+<h2 class="section-title">🎮 NẠP GAME</h2>
+<div class="panel">
+<select id="gameName">
+<option>Free Fire</option>
+<option>Liên Quân Mobile</option>
+</select>
+<input id="gameID" placeholder="Nhập ID nhân vật">
+<select id="diamond">
+<option>Gói 50 KC / Quân Huy</option>
+<option>Gói 100 KC / Quân Huy</option>
+<option>Gói 200 KC / Quân Huy</option>
+<option>Gói 500 KC / Quân Huy</option>
+<option>Gói 1000 KC / Quân Huy</option>
+</select>
+<button class="primary" onclick="gameOrder()">GỬI YÊU CẦU NẠP GAME</button>
+<p id="gameMessage"></p>
+</div>
+</section>
+
+<!-- ĐĂNG NHẬP KHÁCH -->
+<section id="login" class="hidden">
+<h2 class="section-title">👤 TÀI KHOẢN KHÁCH HÀNG</h2>
+<div class="panel">
+<h3>Đăng ký / Đăng nhập</h3>
+<input id="customerEmail" placeholder="Email hoặc tên đăng nhập">
+<input id="customerPass" type="password" placeholder="Mật khẩu">
+<button class="primary" onclick="customerLogin()">ĐĂNG NHẬP</button>
+<button class="green" onclick="customerRegister()">ĐĂNG KÝ TÀI KHOẢN</button>
+<p id="customerMessage"></p>
+</div>
+</section>
+
+<!-- ADMIN LOGIN -->
+<section id="adminLogin" class="hidden">
+<h2 class="section-title">🔐 ĐĂNG NHẬP ADMIN</h2>
+<div class="panel">
+<input id="adminEmail" placeholder="Gmail Admin">
+<input id="adminPass" type="password" placeholder="Mật khẩu Admin">
+<button class="primary" onclick="adminLogin()">ĐĂNG NHẬP ADMIN</button>
+<p id="adminMessage"></p>
+</div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin" class="hidden">
+<h2 class="section-title">👑 BẢNG ĐIỀU KHIỂN ADMIN</h2>
+
+<div class="panel">
+<h2>💰 TÀI SẢN ADMIN</h2>
+<div class="price">999.000.000.000đ</div>
+<p>Số dư minh họa của Admin</p>
+</div>
+
+<div class="panel">
+<h3>💳 DANH SÁCH THẺ KHÁCH GỬI</h3>
+<div id="adminCards"></div>
+</div>
+
+<div class="panel">
+<h3>🎮 ĐƠN NẠP GAME</h3>
+<div id="adminGames"></div>
+</div>
+
+<div class="panel">
+<h3>🛒 ĐƠN MUA TÚI MÙ</h3>
+<div id="adminOrders"></div>
+</div>
+
+<button class="red" onclick="logout()">ĐĂNG XUẤT ADMIN</button>
+</section>
+
+</div>
+
+<footer>
+<h3>🎮 SHOP TÚI MÙ GAMING</h3>
+<p>Hỗ trợ: 0933454413</p>
+<p>Free Fire | Liên Quân | Nạp thẻ | Nạp game</p>
+<p>© 2026 SHOP GAMING</p>
+</footer>
+
+<script>
+const prices=[99000,299000,999000];
+
+function show(id){
+ document.querySelectorAll('.container section')
+ .forEach(s=>s.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+}
+
+function money(n){
+ return n.toLocaleString('vi-VN')+'đ';
+}
+
+function createProducts(id,game){
+ document.getElementById(id).innerHTML=prices.map((p,i)=>`
+ <div class="card">
+ <div class="emoji">${game==='Free Fire'?'🔫':'⚔️'}</div>
+ <h3>Túi mù ${game}</h3>
+ <p>${i===0?'Gói cơ bản':i===1?'Gói cao cấp':'Gói siêu VIP'}</p>
+ <div class="price">${money(p)}</div>
+ <button class="buy" onclick="buy('${game}',${p})">MUA NGAY</button>
+ </div>`).join('');
+}
+createProducts('ffProducts','Free Fire');
+createProducts('lqProducts','Liên Quân');
+
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+let cards=JSON.parse(localStorage.getItem('cards')||'[]');
+let games=JSON.parse(localStorage.getItem('games')||'[]');
+
+function save(){
+ localStorage.setItem('orders',JSON.stringify(orders));
+ localStorage.setItem('cards',JSON.stringify(cards));
+ localStorage.setItem('games',JSON.stringify(games));
+}
+
+function buy(game,price){
+ const name=prompt('Nhập tên khách hàng:');
+ if(!name)return;
+ orders.push({
+ name,game,price,
+ status:'Đang chờ xử lý'
+ });
+ save();
+ alert('Đã tạo đơn hàng! Vui lòng liên hệ 0933454413 để xác nhận thanh toán.');
+}
+
+function sendCard(){
+ let type=document.getElementById('cardType').value;
+ let value=document.getElementById('cardValue').value;
+ let serial=document.getElementById('serial').value.trim();
+ let code=document.getElementById('code').value.trim();
+ let phone=document.getElementById('cardPhone').value.trim();
+
+ if(!serial||!code||!phone){
+ alert('Vui lòng nhập đầy đủ thông tin!');
+ return;
+ }
+
+ cards.push({
+ type,value,serial,code,phone,
+ status:'Chờ duyệt'
+ });
+ save();
+ document.getElementById('cardMessage').innerText=
+ 'Đã gửi thông tin thẻ. Vui lòng chờ Admin kiểm tra.';
+ document.getElementById('serial').value='';
+ document.getElementById('code').value='';
+}
+
+function gameOrder(){
+ let game=document.getElementById('gameName').value;
+ let id=document.getElementById('gameID').value;
+ let pack=document.getElementById('diamond').value;
+ if(!id){alert('Vui lòng nhập ID game');return}
+ games.push({game,id,pack,status:'Chờ duyệt'});
+ save();
+ document.getElementById('gameMessage').innerText='Đã gửi yêu cầu nạp game!';
+}
+
+function customerRegister(){
+ let email=document.getElementById('customerEmail').value;
+ let pass=document.getElementById('customerPass').value;
+ if(!email||!pass)return alert('Nhập đủ thông tin');
+ let users=JSON.parse(localStorage.getItem('users')||'{}');
+ if(users[email])return alert('Tài khoản đã tồn tại');
+ users[email]=pass;
+ localStorage.setItem('users',JSON.stringify(users));
+ alert('Đăng ký thành công!');
+}
+
+function customerLogin(){
+ let email=document.getElementById('customerEmail').value;
+ let pass=document.getElementById('customerPass').value;
+ let users=JSON.parse(localStorage.getItem('users')||'{}');
+ document.getElementById('customerMessage').innerText=
+ users[email]===pass?'Đăng nhập thành công!':'Sai tài khoản hoặc mật khẩu!';
+}
+
+function adminLogin(){
+ let email=document.getElementById('adminEmail').value;
+ let pass=document.getElementById('adminPass').value;
+
+ if(email==='checongthanh33@gmail.com'&&pass==='111111'){
+ show('admin');
+ renderAdmin();
+ }else{
+ document.getElementById('adminMessage').innerText='Sai thông tin Admin!';
+ }
+}
+
+function renderAdmin(){
+ document.getElementById('adminCards').innerHTML=
+ cards.map((c,i)=>`
+ <div class="item">
+ <b>Thẻ ${i+1}: ${c.type}</b>
+ <p>Mệnh giá: ${c.value}</p>
+ <p>Serial: ${c.serial}</p>
+ <p>Mã thẻ: ${c.code}</p>
+ <p>SĐT: ${c.phone}</p>
+ <p>Trạng thái: ${c.status}</p>
+ ${c.status==='Chờ duyệt'?`
+ <button class="green" onclick="approveCard(${i})">DUYỆT THẺ</button>
+ <button class="red" onclick="rejectCard(${i})">TỪ CHỐI</button>`:''}
+ </div>`).join('')||'Chưa có thẻ nào';
+
+ document.getElementById('adminGames').innerHTML=
+ games.map((g,i)=>`
+ <div class="item">
+ <b>${g.game}</b>
+ <p>ID: ${g.id}</p>
+ <p>Gói: ${g.pack}</p>
+ <p>${g.status}</p>
+ <button class="green" onclick="approveGame(${i})">DUYỆT</button>
+ </div>`).join('')||'Chưa có đơn nạp game';
+
+ document.getElementById('adminOrders').innerHTML=
+ orders.map((o,i)=>`
+ <div class="item">
+ <b>${o.game}</b>
+ <p>Khách: ${o.name}</p>
+ <p>Giá: ${money(o.price)}</p>
+ <p>${o.status}</p>
+ <button class="green" onclick="approveOrder(${i})">DUYỆT ĐƠN</button>
+ </div>`).join('')||'Chưa có đơn hàng';
+}
+
+function approveCard(i){
+ cards[i].status='Đã duyệt';
+ save();renderAdmin();
+}
+function rejectCard(i){
+ cards[i].status='Từ chối';
+ save();renderAdmin();
+}
+function approveGame(i){
+ games[i].status='Đã duyệt';
+ save();renderAdmin();
+}
+function approveOrder(i){
+ orders[i].status='Đã duyệt';
+ save();renderAdmin();
+}
+function logout(){show('home')}
+
+</script>
+</body>
+</html>
